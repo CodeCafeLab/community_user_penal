@@ -1,0 +1,88 @@
+{
+  "placeholderImages": [
+    {
+      "id": "user-avatar-1",
+      "description": "User avatar placeholder 1",
+      "imageUrl": "https://images.unsplash.com/photo-1590086782792-42dd2350140d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3Njg0NTYzODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "user-avatar-2",
+      "description": "User avatar placeholder 2",
+      "imageUrl": "https://images.unsplash.com/flagged/photo-1559855603-ce4c8f480d76?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzY4NDQzNjQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "user-avatar-3",
+      "description": "User avatar placeholder 3",
+      "imageUrl": "https://images.unsplash.com/photo-1621873982312-1f83e89a2f21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBnbGFzc2VzfGVufDB8fHx8MTc2ODQxNzUxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man glasses"
+    },
+    {
+      "id": "user-avatar-4",
+      "description": "User avatar placeholder 4",
+      "imageUrl": "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjBzbWlsaW5nfGVufDB8fHx8MTc2ODQ0NjE4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person smiling"
+    },
+    {
+      "id": "event-spring-festival",
+      "description": "Image for a spring festival event",
+      "imageUrl": "https://images.unsplash.com/photo-1641263958357-982d2eb1b9e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcHJpbmclMjBmZXN0aXZhbHxlbnwwfHx8fDE3Njg0NjI4MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spring festival"
+    },
+    {
+      "id": "event-yoga-class",
+      "description": "Image for a yoga class",
+      "imageUrl": "https://images.unsplash.com/photo-1677741447985-da1d90c00742?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx5b2dhJTIwY2xhc3N8ZW58MHx8fHwxNzY4NDYyODE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yoga class"
+    },
+    {
+      "id": "event-movie-night",
+      "description": "Image for a community movie night",
+      "imageUrl": "https://images.unsplash.com/photo-1623720676213-af134f1fd22b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvdXRkb29yJTIwY2luZW1hfGVufDB8fHx8MTc2ODQ2MjgxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "outdoor cinema"
+    },
+    {
+      "id": "announcement-maintenance",
+      "description": "Image for maintenance announcement",
+      "imageUrl": "https://images.unsplash.com/photo-1751486403850-fae53b6ab0e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0b29scyUyMHJlcGFpcnxlbnwwfHx8fDE3Njg0NjI4MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tools repair"
+    },
+    {
+      "id": "announcement-social",
+      "description": "Image for social announcement",
+      "imageUrl": "https://images.unsplash.com/photo-1761066489242-2a46b781485d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb21tdW5pdHklMjBwYXJ0eXxlbnwwfHx8fDE3Njg0NjI4MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "community party"
+    },
+    {
+      "id": "announcement-emergency",
+      "description": "Image for emergency announcement",
+      "imageUrl": "https://images.unsplash.com/photo-1567539565392-01fc443434f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3YXJuaW5nJTIwc2lnbnxlbnwwfHx8fDE3Njg0NjI4MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "warning sign"
+    },
+    {
+      "id": "facility-clubhouse",
+      "description": "Image of a clubhouse",
+      "imageUrl": "https://images.unsplash.com/photo-1761971975886-57975f99ce99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb2Rlcm4lMjBjbHViaG91c2V8ZW58MHx8fHwxNzY4NDQxMDE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern clubhouse"
+    },
+    {
+      "id": "facility-gym",
+      "description": "Image of a gym",
+      "imageUrl": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmaXRuZXNzJTIwZ3ltfGVufDB8fHx8MTc2ODQ2MjgxNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fitness gym"
+    },
+    {
+      "id": "facility-pool",
+      "description": "Image of a swimming pool",
+      "imageUrl": "https://images.unsplash.com/photo-1591285713698-598d587de63e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzd2ltbWluZyUyMHBvb2x8ZW58MHx8fHwxNzY4MzkwODAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "swimming pool"
+    },
+    {
+      "id": "facility-court",
+      "description": "Image of a sports court",
+      "imageUrl": "https://images.unsplash.com/photo-1499510318569-1a3d67dc3976?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZW5uaXMlMjBjb3VydHxlbnwwfHx8fDE3Njg0NjI4MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tennis court"
+    }
+  ]
+}
