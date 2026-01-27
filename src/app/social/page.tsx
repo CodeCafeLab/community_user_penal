@@ -156,36 +156,6 @@ export default function SocialPage() {
     return (
         <div className="flex flex-col gap-6 pb-24 md:pb-8 w-full max-w-7xl mx-auto px-4 md:px-0">
 
-            {/* Mobile Header */}
-            <div className="flex items-center justify-between py-2 sticky top-0 bg-background/95 backdrop-blur z-20 md:hidden">
-                <div className="flex items-center gap-2">
-                    <h1 className="text-xl font-bold font-headline">Community Feed</h1>
-                    <Badge className="bg-primary/10 text-primary border-0 text-[10px] h-5">Live</Badge>
-                </div>
-                <div className="flex gap-2">
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className="rounded-full"
-                        onClick={() => {
-                            setSavedOnly((v) => !v);
-                            toast({ title: savedOnly ? "Showing all posts" : "Showing saved posts" });
-                        }}
-                    >
-                        <Bookmark className={`w-6 h-6 ${savedOnly ? "text-primary" : "text-foreground/80"}`} />
-                    </Button>
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className="rounded-full relative"
-                        onClick={() => toast({ title: "Inbox (demo)", description: "Direct messages will appear here." })}
-                    >
-                        <MessageCircle className="w-6 h-6 text-foreground/80" />
-                        <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-background"></span>
-                    </Button>
-                </div>
-            </div>
-
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Main Feed Column */}
                 <div className="lg:col-span-8 space-y-6">
@@ -199,7 +169,26 @@ export default function SocialPage() {
                                 className="bg-card rounded-2xl h-11"
                             />
                             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
-                                <Badge className="bg-muted/40 text-muted-foreground border-0 text-[10px]">Ctrl K</Badge>
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="rounded-full h-8 w-8"
+                                    onClick={() => {
+                                        setSavedOnly((v) => !v);
+                                        toast({ title: savedOnly ? "Showing all posts" : "Showing saved posts" });
+                                    }}
+                                >
+                                    <Bookmark className={`w-4 h-4 ${savedOnly ? "text-primary" : "text-foreground/70"}`} />
+                                </Button>
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="rounded-full h-8 w-8 relative"
+                                    onClick={() => toast({ title: "Inbox (demo)", description: "Direct messages will appear here." })}
+                                >
+                                    <MessageCircle className="w-4 h-4 text-foreground/70" />
+                                    <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-background"></span>
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -372,57 +361,59 @@ export default function SocialPage() {
 
                 {/* Right Sidebar (Desktop) */}
                 <div className="hidden lg:col-span-4 lg:block space-y-6">
-                    <Card className="rounded-2xl border-border/50 shadow-sm bg-card sticky top-24">
-                        <CardHeader>
-                            <CardTitle className="text-lg">Trending in Community</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            {[
-                                { tag: "#SummerFest2026", posts: "1.2k posts" },
-                                { tag: "#PoolMaintenance", posts: "45 posts" },
-                                { tag: "#LostKeys", posts: "12 posts" },
-                                { tag: "#YogaClub", posts: "89 posts" }
-                            ].map((topic, i) => (
-                                <div key={i} className="flex items-center justify-between cursor-pointer group" onClick={() => setQuery(topic.tag)}>
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                            <Hash className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
+                    <div className="sticky top-24 space-y-6">
+                        <Card className="rounded-2xl border-border/50 shadow-sm bg-card">
+                            <CardHeader>
+                                <CardTitle className="text-lg">Trending in Community</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                {[
+                                    { tag: "#SummerFest2026", posts: "1.2k posts" },
+                                    { tag: "#PoolMaintenance", posts: "45 posts" },
+                                    { tag: "#LostKeys", posts: "12 posts" },
+                                    { tag: "#YogaClub", posts: "89 posts" }
+                                ].map((topic, i) => (
+                                    <div key={i} className="flex items-center justify-between cursor-pointer group" onClick={() => setQuery(topic.tag)}>
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                                <Hash className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
+                                            </div>
+                                            <div>
+                                                <p className="font-semibold text-sm group-hover:text-primary transition-colors">{topic.tag}</p>
+                                                <p className="text-xs text-muted-foreground">{topic.posts}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <p className="font-semibold text-sm group-hover:text-primary transition-colors">{topic.tag}</p>
-                                            <p className="text-xs text-muted-foreground">{topic.posts}</p>
-                                        </div>
+                                        <TrendingUp className="w-4 h-4 text-muted-foreground" />
                                     </div>
-                                    <TrendingUp className="w-4 h-4 text-muted-foreground" />
-                                </div>
-                            ))}
-                        </CardContent>
-                    </Card>
+                                ))}
+                            </CardContent>
+                        </Card>
 
-                    <Card className="rounded-2xl border-border/50 shadow-sm bg-card">
-                        <CardHeader>
-                            <CardTitle className="text-lg">Suggested People</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            {[1, 2, 3].map((_, i) => (
-                                <div key={i} className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <Avatar>
-                                            <AvatarImage src={`https://i.pravatar.cc/150?img=${i + 10}`} />
-                                            <AvatarFallback>U</AvatarFallback>
-                                        </Avatar>
-                                        <div>
-                                            <p className="font-semibold text-sm">New Resident {i + 1}</p>
-                                            <p className="text-xs text-muted-foreground">Block B</p>
+                        <Card className="rounded-2xl border-border/50 shadow-sm bg-card">
+                            <CardHeader>
+                                <CardTitle className="text-lg">Suggested People</CardTitle>
+                            </CardHeader>
+                            <CardContent className="space-y-4">
+                                {[1, 2, 3].map((_, i) => (
+                                    <div key={i} className="flex items-center justify-between">
+                                        <div className="flex items-center gap-3">
+                                            <Avatar>
+                                                <AvatarImage src={`https://i.pravatar.cc/150?img=${i + 10}`} />
+                                                <AvatarFallback>U</AvatarFallback>
+                                            </Avatar>
+                                            <div>
+                                                <p className="font-semibold text-sm">New Resident {i + 1}</p>
+                                                <p className="text-xs text-muted-foreground">Block B</p>
+                                            </div>
                                         </div>
+                                        <Button size="sm" variant="outline" className="rounded-full text-xs h-7 px-3" onClick={() => toast({ title: "Followed (demo)", description: `You will now see updates from New Resident ${i + 1}.` })}>
+                                            Follow
+                                        </Button>
                                     </div>
-                                    <Button size="sm" variant="outline" className="rounded-full text-xs h-7 px-3" onClick={() => toast({ title: "Followed (demo)", description: `You will now see updates from New Resident ${i + 1}.` })}>
-                                        Follow
-                                    </Button>
-                                </div>
-                            ))}
-                        </CardContent>
-                    </Card>
+                                ))}
+                            </CardContent>
+                        </Card>
+                    </div>
                 </div>
             </div>
 

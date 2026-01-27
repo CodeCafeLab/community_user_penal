@@ -20,6 +20,7 @@ import {
   Phone,
   ShoppingBag,
   Lock,
+  Settings,
 } from 'lucide-react';
 import { getPlaceholderImage } from './placeholder-images';
 
@@ -191,4 +192,11 @@ export const navLinks = [
   { href: '/marketplace', label: 'Marketplace', icon: ShoppingBag },
   { href: '/services', label: 'Services', icon: Wrench },
   { href: '/devices', label: 'Devices', icon: Lock },
+  { href: '/payments', label: 'Payments', icon: CreditCard },
+  { href: '/events', label: 'Events', icon: Calendar },
+  { href: '/directory', label: 'Directory', icon: BookOpen },
+  { href: '/announcements', label: 'Announcements', icon: Megaphone },
+  { href: '/complaints', label: 'Complaints', icon: AlertTriangle },
+  { href: '/facilities', label: 'Facilities', icon: Building },
+  { href: '/settings', label: 'Settings', icon: Settings },
 ];

@@ -74,20 +74,20 @@ export default function DevicesPage() {
 
     return (
         <div className="flex flex-col gap-6 pb-24 md:pb-8 w-full max-w-7xl mx-auto px-4 md:px-0">
-            {/* Mobile Header */}
-            <div className="flex items-center justify-between py-2 sticky top-0 bg-background/95 backdrop-blur z-20 md:hidden">
+            {/* Mobile actions (global mobile header handles title/search) */}
+            <div className="flex items-center justify-between md:hidden">
+                <Badge className="bg-primary/10 text-primary border-0 rounded-full">{activeCount} active</Badge>
                 <div className="flex items-center gap-2">
-                    <div className="border border-foreground/20 rounded-md p-0.5">
-                        <SafeImage src="/favicon.ico" alt="logo" width={20} height={20} className="w-5 h-5" />
-                    </div>
-                    <h1 className="text-xl font-bold font-headline">Smart Home</h1>
-                </div>
-                <div className="flex gap-2">
-                    <Button variant="ghost" size="icon" className="rounded-full" onClick={() => setAddOpen(true)}>
-                        <Plus className="w-6 h-6 text-foreground/80" />
+                    <Button size="sm" className="rounded-full gap-2" onClick={() => setAddOpen(true)}>
+                        <Plus className="w-4 h-4" /> Add
                     </Button>
-                    <Button variant="ghost" size="icon" className="rounded-full" onClick={() => toast({ title: "Settings (demo)", description: "Device preferences would open here." })}>
-                        <Settings className="w-6 h-6 text-foreground/80" />
+                    <Button
+                        size="sm"
+                        variant="secondary"
+                        className="rounded-full gap-2"
+                        onClick={() => toast({ title: "Settings (demo)", description: "Device preferences would open here." })}
+                    >
+                        <Settings className="w-4 h-4" /> Settings
                     </Button>
                 </div>
             </div>

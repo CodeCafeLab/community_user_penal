@@ -65,26 +65,25 @@ export default function DashboardPage() {
   return (
     <>
     <div className="flex flex-col gap-6 pb-24 md:pb-8 w-full max-w-7xl mx-auto px-4 md:px-0">
-      {/* Mobile Header */}
-      <div className="flex items-center justify-between py-2 md:hidden">
-        <div className="flex items-center gap-3">
-          <Avatar className="w-10 h-10 border-2 border-primary ring-2 ring-primary/20 shadow-sm">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1 font-bold text-lg leading-none cursor-pointer hover:opacity-80 transition-opacity">
-              7 203 <ChevronDown className="w-4 h-4 text-primary" />
+      {/* Mobile: quick shortcuts row (global mobile header handles top bar) */}
+      <div className="md:hidden">
+        <Card className="rounded-2xl border-border/50 shadow-sm bg-card">
+          <CardContent className="p-4 flex items-center justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-sm font-semibold">Welcome back</p>
+              <p className="text-xs text-muted-foreground truncate">Quickly jump to key features.</p>
             </div>
-            <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground">Premium Plan</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" className="rounded-full hover:bg-muted/50" onClick={() => setQuickSearchOpen(true)}>
-            <Search className="w-6 h-6 text-foreground/80" />
-          </Button>
-          <NotificationCenter />
-        </div>
+            <Button
+              size="sm"
+              variant="secondary"
+              className="rounded-full"
+              onClick={() => setQuickSearchOpen(true)}
+            >
+              <Search className="w-4 h-4 mr-2" />
+              Quick search
+            </Button>
+          </CardContent>
+        </Card>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -146,8 +145,11 @@ export default function DashboardPage() {
                   {...action}
                   onClick={() => {
                     if (action.label === "Posts") router.push("/social");
-                    else if (action.label === "Payments") toast({ title: "Payments (demo)", description: "Payment history & dues would open here." });
+                    else if (action.label === "Payments") router.push("/payments");
                     else if (action.label === "Helpdesk") toast({ title: "Helpdesk (demo)", description: "Raise and track service tickets here." });
+                    else if (action.label === "Directory") router.push("/directory");
+                    else if (action.label === "Events") router.push("/events");
+                    else if (action.label === "Settings") router.push("/settings");
                     else toast({ title: `${action.label} (demo)`, description: "This feature is showcased in the premium build." });
                   }}
                 />
