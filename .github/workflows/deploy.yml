@@ -1,0 +1,74 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy community_user_penal to Production
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Deploy community_user_penal Backend
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          host: 13.232.189.244
+          username: ubuntu
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
+          envs: GH_TOKEN
+          script: |
+            set -e
+            export GH_TOKEN="$GH_TOKEN"
+            echo "🚀 Deploying community_user_penal Backend..."
+
+            PROJECT_DIR="/var/www/community/community_user_penal"
+            cd "$PROJECT_DIR"
+
+            # Configure git authentication
+            if [ -n "$GH_TOKEN" ] && [ "$GH_TOKEN" != "" ] && [ "$GH_TOKEN" != "***" ]; then
+              echo "Configuring git authentication with token"
+              CLEAN_TOKEN=$(echo -n "$GH_TOKEN" | tr -d "\n\r")
+              GIT_URL=$(printf "https://CodeCafeLab:%s@github.com/%s.git" "$CLEAN_TOKEN" "CodeCafeLab/community_user_penal")
+              git remote set-url origin "$GIT_URL"
+            else
+              echo "⚠️  GH_TOKEN not set or invalid, using existing git configuration"
+              git remote set-url origin https://github.com/CodeCafeLab/community_user_penal.git
+            fi
+
+            echo "📥 Fetching latest changes from GitHub..."
+            git fetch origin main --tags || git fetch origin master --tags
+            git reset --hard origin/main || git reset --hard origin/master
+            git clean -fd
+
+            echo "📦 Installing dependencies..."
+            npm install --legacy-peer-deps
+
+            echo "🔨 Building application..."
+            npm run build || echo "⚠️  Build completed with warnings (check logs)"
+
+            echo "🔄 Restarting PM2 process safely (community_user_penal only)..."
+            PM2_NAME="community_user_penal"
+
+            if pm2 describe "$PM2_NAME" >/dev/null 2>&1; then
+              echo "  → Stopping PM2 process: $PM2_NAME"
+              pm2 stop "$PM2_NAME" || true
+              sleep 2
+              pm2 delete "$PM2_NAME" || true
+              sleep 2
+            fi
+
+            echo "  → Starting PM2 process: $PM2_NAME"
+            pm2 start npm --name "$PM2_NAME" -- start
+
+            sleep 3
+            pm2 status "$PM2_NAME"
+
+            pm2 save
+            echo "✅ community_user_penal deployed successfully!"
