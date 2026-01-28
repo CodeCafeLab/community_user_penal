@@ -54,7 +54,7 @@ jobs:
             npm run build || echo "⚠️  Build completed with warnings (check logs)"
 
             echo "🔄 Restarting PM2 process safely (community_user_penal only)..."
-            PM2_NAME="community_user_penal"
+            PM2_NAME="community-user-panel"
 
             if pm2 describe "$PM2_NAME" >/dev/null 2>&1; then
               echo "  → Stopping PM2 process: $PM2_NAME"
