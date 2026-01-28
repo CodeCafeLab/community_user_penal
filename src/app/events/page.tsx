@@ -6,14 +6,14 @@ import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, MapPin } from 'lucide-react';
 import { format } from 'date-fns';
 import { VolunteerRecommender } from '@/components/events/volunteer-recommender';
+import { PageShell } from "@/components/page-shell";
 
 export default function EventsPage() {
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Community Events</h1>
-        <p className="text-muted-foreground">Get involved! See what's happening in your community.</p>
-      </div>
+    <PageShell
+      title="Community Events"
+      description="Get involved! See what's happening in your community."
+    >
 
       <VolunteerRecommender />
 
@@ -63,6 +63,6 @@ export default function EventsPage() {
           </Card>
         ))}
       </div>
-    </div>
+    </PageShell>
   );
 }

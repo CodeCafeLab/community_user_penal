@@ -11,16 +11,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { payments } from "@/lib/data";
 import { Download, CreditCard } from "lucide-react";
+import { PageShell } from "@/components/page-shell";
 
 export default function PaymentsPage() {
     const outstandingDues = 150.00;
 
     return (
-        <div className="space-y-8">
-            <div>
-                <h1 className="text-3xl font-bold tracking-tight font-headline">Financials</h1>
-                <p className="text-muted-foreground">Manage your dues and view payment history.</p>
-            </div>
+        <PageShell
+            title="Financials"
+            description="Manage your dues and view payment history."
+        >
 
             <Card className="bg-primary/5 dark:bg-primary/10 border-primary/20">
                 <CardHeader>
@@ -80,6 +80,6 @@ export default function PaymentsPage() {
                     </div>
                 </CardContent>
             </Card>
-        </div>
+        </PageShell>
     );
 }

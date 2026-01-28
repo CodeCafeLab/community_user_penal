@@ -4,16 +4,16 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { PageShell } from "@/components/page-shell";
 
 const categories = ['All', 'General', 'Maintenance', 'Social', 'Emergency'];
 
 export default function AnnouncementsPage() {
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Announcements</h1>
-        <p className="text-muted-foreground">Stay updated with the latest news and notices from the community.</p>
-      </div>
+    <PageShell
+      title="Announcements"
+      description="Stay updated with the latest news and notices from the community."
+    >
       <Tabs defaultValue="All" className="w-full">
         <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
           {categories.map(category => (
@@ -67,6 +67,6 @@ export default function AnnouncementsPage() {
           </TabsContent>
         ))}
       </Tabs>
-    </div>
+    </PageShell>
   );
 }

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { CheckCircle, XCircle, Wrench } from 'lucide-react';
+import { PageShell } from "@/components/page-shell";
 
 const statusMap = {
   Available: {
@@ -26,11 +27,10 @@ const statusMap = {
 
 export default function FacilitiesPage() {
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Facility Booking</h1>
-        <p className="text-muted-foreground">Book community facilities for your personal events and activities.</p>
-      </div>
+    <PageShell
+      title="Facility Booking"
+      description="Book community facilities for your personal events and activities."
+    >
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
         {facilities.map(facility => {
@@ -65,6 +65,6 @@ export default function FacilitiesPage() {
           )
         })}
       </div>
-    </div>
+    </PageShell>
   );
 }

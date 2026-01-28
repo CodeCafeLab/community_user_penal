@@ -5,14 +5,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Mail, Phone, Search, Users } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { PageShell } from "@/components/page-shell";
 
 export default function DirectoryPage() {
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Community Directory</h1>
-        <p className="text-muted-foreground">Connect with your neighbors and join interest groups.</p>
-      </div>
+    <PageShell
+      title="Community Directory"
+      description="Connect with your neighbors and join interest groups."
+    >
 
       <div className="relative">
         <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -77,6 +77,6 @@ export default function DirectoryPage() {
           </div>
         </TabsContent>
       </Tabs>
-    </div>
+    </PageShell>
   );
 }

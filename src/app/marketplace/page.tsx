@@ -191,25 +191,22 @@ export default function MarketplacePage() {
 
     return (
         <div className="flex flex-col gap-6 pb-24 md:pb-8 w-full max-w-7xl mx-auto px-4 md:px-0">
-
-            <div className="flex items-center justify-between py-2 sticky top-0 bg-background/95 backdrop-blur z-20 md:hidden">
-                <h1 className="text-xl font-bold font-headline">Marketplace</h1>
+            {/* Mobile actions (global mobile header handles title/search) */}
+            <div className="flex items-center justify-between md:hidden">
                 <div className="flex items-center gap-2">
                     <Button
-                        variant="ghost"
-                        size="icon"
-                        className="rounded-full"
+                        variant={showSavedOnly ? "default" : "secondary"}
+                        size="sm"
+                        className="rounded-full gap-2"
                         onClick={() => setShowSavedOnly((v) => !v)}
                     >
-                        <Bookmark className={`w-6 h-6 ${showSavedOnly ? "text-primary" : "text-foreground/80"}`} />
-                    </Button>
-                    <Button variant="ghost" size="icon" className="rounded-full" onClick={() => setSellOpen(true)}>
-                        <Plus className="w-6 h-6 text-foreground/80" />
-                    </Button>
-                    <Button variant="ghost" size="icon" className="rounded-full relative">
-                        <MessageSquare className="w-6 h-6 text-foreground/80" />
+                        <Bookmark className="w-4 h-4" />
+                        Saved {savedCount > 0 ? `(${savedCount})` : ""}
                     </Button>
                 </div>
+                <Button size="sm" className="rounded-full gap-2" onClick={() => setSellOpen(true)}>
+                    <Plus className="w-4 h-4" /> Sell
+                </Button>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">

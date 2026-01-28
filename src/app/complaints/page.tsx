@@ -2,14 +2,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ComplaintsTable } from "@/components/complaints/complaints-table";
 import { ComplaintForm } from "@/components/complaints/complaint-form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageShell } from "@/components/page-shell";
 
 export default function ComplaintsPage() {
     return (
-        <div className="space-y-8">
-            <div>
-                <h1 className="text-3xl font-bold tracking-tight font-headline">Complaint Management</h1>
-                <p className="text-muted-foreground">Report issues and track their resolution status.</p>
-            </div>
+        <PageShell
+            title="Complaint Management"
+            description="Report issues and track their resolution status."
+        >
 
             <Tabs defaultValue="my-complaints" className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
@@ -39,6 +39,6 @@ export default function ComplaintsPage() {
                     </Card>
                 </TabsContent>
             </Tabs>
-        </div>
+        </PageShell>
     );
 }

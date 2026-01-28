@@ -16,6 +16,8 @@ import { Icons } from './icons';
 import { Separator } from './ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from './ui/dropdown-menu';
+import { Card } from './ui/card';
+import { Button } from './ui/button';
 
 export function SidebarNav() {
   const pathname = usePathname();
@@ -100,17 +102,21 @@ export function SidebarNav() {
                 <div className="p-2 border-b border-border/50 mb-1">
                   <p className="text-xs text-muted-foreground">Logged in as <span className="text-foreground font-medium">@johndoe</span></p>
                 </div>
-                <DropdownMenuItem>
-                  <User className="mr-2 h-4 w-4" />
-                  Account
+                <DropdownMenuItem asChild>
+                  <Link href="/profile">
+                    <User className="mr-2 h-4 w-4" />
+                    Account
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Bell className="mr-2 h-4 w-4" />
                   Notifications
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Settings className="mr-2 h-4 w-4" />
-                  Settings
+                <DropdownMenuItem asChild>
+                  <Link href="/settings">
+                    <Settings className="mr-2 h-4 w-4" />
+                    Settings
+                  </Link>
                 </DropdownMenuItem>
                 <Separator className="my-1" />
                 <DropdownMenuItem className="text-red-500 focus:text-red-500 focus:bg-red-50">
@@ -121,9 +127,12 @@ export function SidebarNav() {
             </DropdownMenu>
           </SidebarMenuItem>
         </SidebarMenu>
+
+        <div className="mt-3 px-2 text-[10px] leading-relaxed text-muted-foreground">
+          <p className="font-medium text-foreground/80">ResidentHub</p>
+          <p>Demo build • UI polished</p>
+        </div>
       </SidebarFooter>
     </>
   );
 }
-import { Card } from './ui/card';
-import { Button } from './ui/button';
